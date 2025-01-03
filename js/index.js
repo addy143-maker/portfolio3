@@ -219,10 +219,14 @@ $(function(){
 
 
 window.onloadTurnstileCallback = function () {
-  turnstile.render("myWidget", {
-    sitekey: "<0x4AAAAAAA4g6H5nfu-oHs2A>",
-    callback: function (token) {
-      console.log(`Challenge Success ${token}`);
-    },
-  });
-};
+    turnstile.render("myWidget", {
+      sitekey: "<0x4AAAAAAA4g6H5nfu-oHs2A>",
+      callback: function (token) {
+        console.log(`Challenge Success ${token}`);
+        setTimeout(() => {
+            document.querySelector("#loader").style.display = "flex";
+            document.getElementById("myWidget").style.display = "none";
+        }, 2000);
+      },
+    });
+  };
