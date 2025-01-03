@@ -216,3 +216,12 @@ $(function(){
     });
   });
 });
+
+window.onloadTurnstileCallback = function () {
+  turnstile.render("Mywidget", {
+    sitekey: "<0x4AAAAAAA4g2ZhCpK5YYWKa>",
+    callback: function (token) {
+      console.log(`Challenge Success ${token}`);
+    },
+  });
+};
